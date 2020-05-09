@@ -5,7 +5,9 @@ import Search from "./components/Search"
 function App() {
   return (
     <div className="App">
-      <Search />
+      <div className="ui container" style={{ marginTop: '10px' }}>
+        <Search />
+      </div>
     </div>
   );
 }
