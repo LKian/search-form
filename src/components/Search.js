@@ -1,14 +1,22 @@
 import React from "react";
 
 class Search extends React.Component {
+
+    state = { term: "" };
+
+    onFormSubmit = e => {
+        e.preventDefault();
+        this.props.onSubmit(this.state.term);
+    }
+
     render() {
         return (
 
             <div className="ui segment">
-                <form className="ui form">
+                <form onSubmit={this.onFormSubmit} className="ui form">
                     <div className="field">
                         <label>Image Search</label>
-                        <input type="text"></input>
+                        <input className="input" type="text" value={this.state.term} onChange={e => this.setState({ term: e.target.value })} ></input>
                     </div>
                 </form>
             </div>
@@ -17,3 +25,7 @@ class Search extends React.Component {
 }
 
 export default Search;
+
+
+// <form onSubmit={this.onFormSubmit} ></form>
+// <form onSubmit={e => this.onFormSubmit(e)} ></form>
